@@ -10,7 +10,7 @@ function ArrowConnector() {
       <svg
         viewBox="0 0 40 24"
         fill="none"
-        className="w-full max-w-[40px] text-[var(--brand-primary)] drop-shadow-[0_0_8px_rgba(215,107,42,0.4)] transition-opacity duration-300"
+        className="w-full max-w-[40px] text-[var(--brand-primary)] opacity-80"
         role="img"
       >
         <path
@@ -84,36 +84,25 @@ export default function HomeCoreMessage({ locale }: { locale: Locale }) {
                 className="flex flex-col min-w-0"
               >
                 <div
-                  className="group relative w-full h-[260px] flex flex-col rounded-3xl p-6 transition-all duration-300 ease-out overflow-hidden flex-1 min-h-0 border border-white/[0.08] hover:border-[var(--brand-primary)]/40 hover:-translate-y-1 hover:scale-[1.02]"
+                  className="group relative w-full h-[260px] flex flex-col rounded-3xl p-6 transition-all duration-300 ease-out overflow-hidden flex-1 min-h-0 hover:-translate-y-1 hover:scale-[1.02]"
                   style={{
-                    background:
-                      'linear-gradient(165deg, rgba(28,29,34,0.98) 0%, rgba(22,23,27,0.95) 50%, rgba(18,19,22,0.98) 100%)',
-                    boxShadow:
-                      'inset 0 1px 0 rgba(255,255,255,0.06), inset 0 -1px 0 rgba(0,0,0,0.2), 0 0 0 1px rgba(215,107,42,0.12), 0 4px 24px -8px rgba(0,0,0,0.5)',
+                    backgroundColor: '#6e6e6e',
+                    boxShadow: '0 4px 6px -1px rgba(0,0,0,0.2), 0 10px 24px -8px rgba(0,0,0,0.28)',
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.boxShadow =
-                      'inset 0 1px 0 rgba(255,255,255,0.08), inset 0 -1px 0 rgba(0,0,0,0.2), 0 0 0 1px rgba(215,107,42,0.35), 0 12px 40px -12px rgba(0,0,0,0.5), 0 0 48px -16px rgba(215,107,42,0.2)';
+                      '0 12px 24px -8px rgba(0,0,0,0.3), 0 20px 40px -16px rgba(0,0,0,0.28)';
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.boxShadow =
-                      'inset 0 1px 0 rgba(255,255,255,0.06), inset 0 -1px 0 rgba(0,0,0,0.2), 0 0 0 1px rgba(215,107,42,0.12), 0 4px 24px -8px rgba(0,0,0,0.5)';
+                      '0 4px 6px -1px rgba(0,0,0,0.2), 0 10px 24px -8px rgba(0,0,0,0.28)';
                   }}
                 >
-                  {/* Top-edge highlight (glass feel) */}
                   <div
-                    className="absolute inset-x-0 top-0 h-px rounded-t-3xl opacity-60"
-                    style={{
-                      background: 'linear-gradient(90deg, transparent, rgba(215,107,42,0.25), transparent)',
-                    }}
-                    aria-hidden
-                  />
-                  <div
-                    className="relative flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-sm font-bold text-white mb-4 ring-2 ring-[var(--brand-primary)]/30 ring-offset-2 ring-offset-[rgba(18,19,22,0.8)]"
+                    className="relative flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-sm font-bold text-white mb-4"
                     style={{
                       background: 'linear-gradient(145deg, var(--brand-primary) 0%, #b35624 100%)',
-                      boxShadow:
-                        '0 2px 12px -2px rgba(215,107,42,0.5), inset 0 1px 0 rgba(255,255,255,0.2), 0 0 20px -4px rgba(215,107,42,0.3)',
+                      boxShadow: '0 2px 8px -2px rgba(215,107,42,0.4)',
                     }}
                   >
                     {item.step}
@@ -122,12 +111,7 @@ export default function HomeCoreMessage({ locale }: { locale: Locale }) {
                     {item.title}
                   </h3>
                   <span
-                    className="inline-flex max-w-full items-center rounded-full px-3 py-1.5 text-xs font-semibold text-[var(--brand-primary)] mb-3 min-w-0 truncate"
-                    style={{
-                      background: 'linear-gradient(135deg, rgba(215,107,42,0.22) 0%, rgba(215,107,42,0.12) 100%)',
-                      border: '1px solid rgba(215,107,42,0.3)',
-                      boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.06)',
-                    }}
+                    className="inline-flex max-w-full items-center rounded-full px-3 py-1.5 text-xs font-semibold text-[var(--brand-primary)] mb-3 min-w-0 truncate bg-[var(--brand-primary)]/15"
                     title={item.deliverable}
                   >
                     {item.deliverable}
@@ -162,41 +146,24 @@ export default function HomeCoreMessage({ locale }: { locale: Locale }) {
                   />
                 )}
                 <div
-                  className="relative z-10 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl text-sm font-bold text-white ring-2 ring-[var(--brand-primary)]/30 ring-offset-2 ring-offset-[var(--brand-background)]"
+                  className="relative z-10 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl text-sm font-bold text-white"
                   style={{
                     background: 'linear-gradient(145deg, var(--brand-primary) 0%, #b35624 100%)',
-                    boxShadow:
-                      '0 2px 12px -2px rgba(215,107,42,0.5), inset 0 1px 0 rgba(255,255,255,0.2), 0 0 16px -4px rgba(215,107,42,0.25)',
+                    boxShadow: '0 2px 8px -2px rgba(215,107,42,0.4)',
                   }}
                 >
                   {item.step}
                 </div>
                 <div
-                  className="group/card relative w-full min-w-0 h-[160px] rounded-3xl p-5 transition-all duration-300 flex flex-col shrink-0 overflow-hidden border border-white/[0.08]"
+                  className="group/card relative w-full min-w-0 h-[160px] rounded-3xl p-5 transition-all duration-300 flex flex-col shrink-0 overflow-hidden"
                   style={{
-                    background:
-                      'linear-gradient(165deg, rgba(28,29,34,0.98) 0%, rgba(22,23,27,0.95) 50%, rgba(18,19,22,0.98) 100%)',
-                    boxShadow:
-                      'inset 0 1px 0 rgba(255,255,255,0.06), inset 0 -1px 0 rgba(0,0,0,0.2), 0 0 0 1px rgba(215,107,42,0.12), 0 4px 20px -8px rgba(0,0,0,0.4)',
+                    backgroundColor: '#6e6e6e',
+                    boxShadow: '0 4px 6px -1px rgba(0,0,0,0.2), 0 10px 24px -8px rgba(0,0,0,0.28)',
                   }}
                 >
-                  <div
-                    className="absolute inset-x-0 top-0 h-px rounded-t-3xl opacity-60"
-                    style={{
-                      background: 'linear-gradient(90deg, transparent, rgba(215,107,42,0.25), transparent)',
-                    }}
-                    aria-hidden
-                  />
                   <div className="relative flex flex-wrap items-center gap-2 mb-2">
                     <h3 className="text-base font-bold text-white tracking-tight">{item.title}</h3>
-                    <span
-                      className="inline-flex items-center rounded-full px-3 py-1.5 text-xs font-semibold text-[var(--brand-primary)]"
-                      style={{
-                        background: 'linear-gradient(135deg, rgba(215,107,42,0.22) 0%, rgba(215,107,42,0.12) 100%)',
-                        border: '1px solid rgba(215,107,42,0.3)',
-                        boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.06)',
-                      }}
-                    >
+                    <span className="inline-flex items-center rounded-full px-3 py-1.5 text-xs font-semibold text-[var(--brand-primary)] bg-[var(--brand-primary)]/15">
                       {item.deliverable}
                     </span>
                   </div>
