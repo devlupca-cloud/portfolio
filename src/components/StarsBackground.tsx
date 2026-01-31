@@ -28,10 +28,12 @@ const StarsBackground = () => {
       speed: number;
       opacity: number;
       opacitySpeed: number;
+      private c: HTMLCanvasElement;
 
-      constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
+      constructor(canvasEl: HTMLCanvasElement) {
+        this.c = canvasEl;
+        this.x = Math.random() * canvasEl.width;
+        this.y = Math.random() * canvasEl.height;
         this.size = Math.random() * 2;
         this.speed = Math.random() * 0.5;
         this.opacity = Math.random();
@@ -48,9 +50,9 @@ const StarsBackground = () => {
           this.opacitySpeed = -this.opacitySpeed;
         }
 
-        if (this.y > canvas.height) {
+        if (this.y > this.c.height) {
           this.y = 0;
-          this.x = Math.random() * canvas.width;
+          this.x = Math.random() * this.c.width;
         }
       }
 
@@ -64,11 +66,11 @@ const StarsBackground = () => {
     }
 
     // Create stars
-    const stars = Array.from({ length: 100 }, () => new Star());
+    const stars = Array.from({ length: 100 }, () => new Star(canvas));
 
     // Animation loop
     const animate = () => {
-      if (!ctx) return;
+      if (!ctx || !canvas) return;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
       stars.forEach(star => {

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface TechIconProps {
@@ -68,7 +67,7 @@ export default function TechIcon({ name }: TechIconProps) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 16 }}
             transition={{ duration: 0.15 }}
-            className="fixed left-1/2 bottom-8 px-6 py-3 rounded-2xl bg-black/90 text-white text-base font-bold shadow-2xl z-[9999] border-2 border-purple-500 pointer-events-none select-none"
+            className="fixed left-1/2 bottom-8 px-6 py-3 rounded-2xl bg-black/90 text-white text-base font-bold shadow-2xl z-[9999] border-2 border-[var(--brand-primary)] pointer-events-none select-none"
             style={{
               transform: 'translateX(-50%)',
               minWidth: 120,

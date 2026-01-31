@@ -5,7 +5,7 @@ interface TechIconProps {
   size?: number;
 }
 
-export default function TechIcon({ name, size = 40 }: TechIconProps) {
+export default function TechIcon({ name }: TechIconProps) {
   const iconPath = `/icons/${name}.png`;
 
   return (

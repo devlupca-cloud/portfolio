@@ -3,8 +3,24 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0b0b0e;
+  --foreground: #f5f6f7;
+  /* Brand tokens (Devlup) */
+  --brand-primary: #d76b2a;   /* laranja (principal) */
+  --brand-secondary: #3c5cd5; /* azul (secundária) */
+  --brand-accent: #d76b2a;    /* usar primary como accent por ora */
+  --brand-muted: #141519;     /* superfície escura com melhor contraste */
+  --brand-foreground: #f5f6f7;
+  --brand-background: #0b0b0e;
+  /* Derivados */
+  --brand-primary-strong: #b35624; /* CTA mais escuro para contraste */
+  --link: #d76b2a; /* link em laranja (cor principal) */
+  --text-muted: #a0a5b0; /* texto secundário com melhor legibilidade */
+  --text-subtle: #6b7280; /* texto muito sutil */
+  /* Surfaces e bordas - melhor contraste */
+  --surface-2: #1a1b1f;
+  --border: rgba(255,255,255,0.12);
+  --ring: rgba(215,107,42,0.5);
 }
 
 @theme inline {
@@ -16,8 +32,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0b0b0e;
+    --foreground: #f5f6f7;
   }
 }
 
@@ -29,4 +45,31 @@ body {
 
 html {
   scroll-behavior: smooth;
+}
+
+/* Links e foco globais (micro ajustes) */
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--brand-primary);
+}
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+/* Hero scroll mouse — seta animada */
+@keyframes hero-arrow-bounce {
+  0% { opacity: 0; transform: translate(-50%, -50%); }
+  40% { opacity: 1; transform: translate(-50%, -40%); }
+  100% { opacity: 0; transform: translate(-50%, -30%); }
+}
+.hero-mouse-arrow {
+  animation: hero-arrow-bounce 1.2s infinite;
 }

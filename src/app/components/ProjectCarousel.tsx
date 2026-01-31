@@ -6,32 +6,52 @@ const projects = [
   {
     image: '/project1-placeholder.jpg',
     title: 'Transportation Management System',
-    description: 'A comprehensive solution for transportation companies, featuring real-time tracking, route optimization, and fleet management.',
+    description: 'Sistema completo para empresas de transporte com rastreamento em tempo real, otimização de rotas e gestão de frota.',
     techs: ['React Native', 'Node.js', 'Firebase'],
+    challenge: 'Empresa precisava modernizar gestão de frota',
+    solution: 'App mobile + dashboard web integrados',
+    result: 'Redução de 60% no tempo de processamento',
+    badge: 'Case de Sucesso',
   },
   {
     image: '/project2-placeholder.jpg',
     title: 'Agribusiness Platform',
-    description: 'Digital transformation solution for agribusiness, including crop management, inventory control, and market analysis.',
+    description: 'Solução de transformação digital para agronegócio, incluindo gestão de cultivos, controle de estoque e análise de mercado.',
     techs: ['Flutter', 'Python', 'Power BI'],
+    challenge: 'Necessidade de digitalizar processos manuais',
+    solution: 'Plataforma completa com analytics',
+    result: 'Aumento de 40% na eficiência operacional',
+    badge: 'Case de Sucesso',
   },
   {
     image: '/project3-placeholder.jpg',
     title: 'Cross-Platform Mobile App',
-    description: 'A successful mobile application available on both iOS and Android, featuring modern UI/UX and seamless performance.',
+    description: 'Aplicativo mobile de sucesso disponível em iOS e Android, com UI/UX moderna e performance nativa.',
     techs: ['React Native', 'Supabase', 'GCP'],
+    challenge: 'MVP rápido para validar ideia',
+    solution: 'App multiplataforma com backend escalável',
+    result: '10k+ downloads em 3 meses',
+    badge: 'Destaque',
   },
   {
     image: '/project4-placeholder.jpg',
     title: 'E-commerce Solution',
-    description: 'A scalable e-commerce platform with payment integration and analytics.',
+    description: 'Plataforma de e-commerce escalável com integração de pagamentos e analytics avançado.',
     techs: ['Next.js', 'Stripe', 'MongoDB'],
+    challenge: 'E-commerce que precisava escalar',
+    solution: 'Plataforma otimizada para performance',
+    result: 'Aumento de 35% na conversão',
+    badge: null,
   },
   {
     image: '/project5-placeholder.jpg',
     title: 'Analytics Dashboard',
-    description: 'A dashboard for real-time business analytics and reporting.',
+    description: 'Dashboard para analytics de negócio em tempo real e relatórios automatizados.',
     techs: ['React', 'D3.js', 'AWS'],
+    challenge: 'Visualização de dados complexos',
+    solution: 'Dashboard interativo e intuitivo',
+    result: 'Decisões 3x mais rápidas',
+    badge: null,
   },
 ];
 
@@ -104,13 +124,13 @@ export default function ProjectCarousel() {
   const infiniteProjects = [...projects, ...projects];
 
   return (
-    <section className="py-20 bg-gray-950 text-white">
+    <section className="py-20 bg-[var(--brand-background)] text-white">
       <div className="container mx-auto">
         <div className="flex items-center justify-between mb-8 px-4">
           <h2 className="text-3xl font-bold">
-            <span className="text-purple-500">Featured</span> Projects
+            <span className="text-[var(--brand-primary)]">Featured</span> Projects
           </h2>
-          <Link href="/projetos" className="px-6 py-2 bg-purple-500 text-white rounded-md font-semibold hover:bg-purple-600 transition-colors shadow-md">
+          <Link href="/projetos" className="px-6 py-2 bg-[var(--brand-primary-strong)] text-white rounded-md font-semibold hover:bg-[var(--brand-primary)] transition-colors shadow-md">
             Ver todos
           </Link>
         </div>
@@ -118,7 +138,7 @@ export default function ProjectCarousel() {
           <button
             aria-label="Scroll left"
             onClick={() => scroll('left')}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-gray-800 hover:bg-purple-600 transition-colors"
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-[var(--surface-2)] hover:bg-[var(--brand-primary)] transition-colors border border-[var(--border)]"
           >
             <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" /></svg>
           </button>
@@ -130,7 +150,7 @@ export default function ProjectCarousel() {
             {infiniteProjects.map((project, idx) => (
               <div
                 key={project.title + '-' + idx}
-                className="bg-gray-800 rounded-lg overflow-hidden shadow-lg min-w-[420px] max-w-lg flex-shrink-0 scroll-snap-align-start flex flex-col justify-between"
+                className="bg-[var(--surface-2)] border border-[var(--border)] rounded-lg overflow-hidden shadow-lg min-w-[420px] max-w-lg flex-shrink-0 scroll-snap-align-start flex flex-col justify-between"
               >
                 <div className="relative h-56 w-full">
                   <Image
@@ -142,12 +162,35 @@ export default function ProjectCarousel() {
                 </div>
                 <div className="flex flex-col flex-1 p-6 pb-4">
                   <div>
-                    <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                    <p className="text-gray-300 mb-4">{project.description}</p>
+                    <div className="flex items-start justify-between mb-2">
+                      <h3 className="text-xl font-bold">{project.title}</h3>
+                      {project.badge && (
+                        <span className="px-2 py-1 bg-[var(--brand-primary-strong)] text-white rounded text-xs font-semibold whitespace-nowrap ml-2">
+                          {project.badge}
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-[var(--text-muted)] mb-4 text-sm">{project.description}</p>
+                    
+                    {/* Estrutura de Case */}
+                    <div className="space-y-2 mb-4 text-xs">
+                      <div>
+                        <span className="text-[var(--brand-primary)] font-semibold">Desafio: </span>
+                        <span className="text-[var(--text-muted)]">{project.challenge}</span>
+                      </div>
+                      <div>
+                        <span className="text-[var(--brand-primary)] font-semibold">Solução: </span>
+                        <span className="text-[var(--text-muted)]">{project.solution}</span>
+                      </div>
+                      <div>
+                        <span className="text-[var(--brand-primary)] font-semibold">Resultado: </span>
+                        <span className="text-white font-semibold">{project.result}</span>
+                      </div>
+                    </div>
                   </div>
-                  <div className="flex flex-wrap gap-2 mt-auto pt-4 border-t border-gray-700">
+                  <div className="flex flex-wrap gap-2 mt-auto pt-4 border-t border-[var(--border)]">
                     {project.techs.map((tech) => (
-                      <span key={tech} className="px-2 py-1 bg-purple-600/20 text-purple-400 rounded text-sm">{tech}</span>
+                      <span key={tech} className="px-2 py-1 bg-[color-mix(in_srgb,var(--brand-primary)_28%,black)] text-[var(--brand-primary)] rounded text-sm">{tech}</span>
                     ))}
                   </div>
                 </div>
@@ -157,10 +200,22 @@ export default function ProjectCarousel() {
           <button
             aria-label="Scroll right"
             onClick={() => scroll('right')}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-gray-800 hover:bg-purple-600 transition-colors"
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-[var(--surface-2)] hover:bg-[var(--brand-primary)] transition-colors border border-[var(--border)]"
           >
             <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" /></svg>
           </button>
+        </div>
+        {/* CTA após Projetos */}
+        <div className="text-center mt-12 px-4">
+          <Link
+            href="/en/contact"
+            className="inline-flex items-center gap-2 px-8 py-3 bg-[var(--brand-primary-strong)] hover:bg-[var(--brand-primary)] text-white rounded-md font-semibold transition-colors shadow-md"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Quero um projeto assim
+          </Link>
         </div>
       </div>
       <style jsx global>{`
