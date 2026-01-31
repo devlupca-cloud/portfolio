@@ -99,7 +99,7 @@ export default function HomeCoreMessage({ locale }: { locale: Locale }) {
                   }}
                 >
                   <div
-                    className="relative flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-sm font-bold text-white mb-4"
+                    className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-sm font-bold text-white mb-4"
                     style={{
                       background: 'linear-gradient(145deg, var(--brand-primary) 0%, #b35624 100%)',
                       boxShadow: '0 2px 8px -2px rgba(215,107,42,0.4)',
